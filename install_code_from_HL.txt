@@ -1,0 +1,12 @@
+mkdir HLvenv
+cd HLvenv
+add-apt-repository ppa:deadsnakes/ppa
+apt update
+apt install python3.9 python3.9-venv python3.9-dev
+python3.9 -m venv .SSSS
+source ./bin/activate
+pip install torch transformers xformers
+pip install "numpy<2"c
+cd ..
+cd ZeroPainter
+pip install -r requirements.txt

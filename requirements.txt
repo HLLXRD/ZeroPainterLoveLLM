@@ -1,0 +1,16 @@
+torchvision
+einops
+pytorch_lightning
+open_clip_torch
+ipywidgets
+segment-anything
+imageio
+scipy
+opencv-python
+matplotlib
+omegaconf
+faiss-gpu-cu12
+pillow
+tqdm
+scikit-learn
+ultralytics
