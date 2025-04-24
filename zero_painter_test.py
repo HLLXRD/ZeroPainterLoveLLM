@@ -118,9 +118,9 @@ class HLongBeo:
         # print(unique_colors)
         mask_pil_png = img
         metadata = [{
-    "prompt": extracted_text + "with no objects around it.",
+    "prompt": "One" + extracted_text + "isolated in an empty room, no other objects",
     "color_context_dict": {
-        "(235, 206, 135)": extracted_text
+        "(235, 206, 135)": "One" + extracted_text
     }
 }]
 # "{(21, 0, 136)}": "black metal bar"

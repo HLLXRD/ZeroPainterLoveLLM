@@ -19,6 +19,7 @@ class ExtractLLM:
         Instruction:
             - The response must not be put inside quotation marks "".
             - Ignore the word "symmetrically".
+            - Ignore the word "flat".
             - Only summarize it on one line.
             - Keep the core furniture words and especially the words for color, texture, material of it. 
             - Don't remove any numerals or quantifiers word like "two", "four", "multiple".
