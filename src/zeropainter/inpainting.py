@@ -9,8 +9,15 @@ from src.smplfusion import IImage
 
 # negative_prompt = "worst quality, ugly, gross, disfigured, deformed, dehydrated, extra limbs, fused body parts, mutilated, malformed, mutated, bad anatomy, bad proportions, low quality, cropped, low resolution, out of frame, poorly drawn, text, watermark, letters, jpeg artifacts"
 # positive_prompt = ", realistic, HD, Full HD, 4K, high quality, high resolution, masterpiece, trending on artstation, realistic lighting"
-negative_prompt = ''
-positive_prompt = '' 
+negative_prompt = '''worst quality, low quality, blurry, out of focus, 
+    deformed, distorted, disfigured, bad proportions, 
+    extra legs, missing parts, floating objects, 
+    text, watermark, logo, cartoon, 3D render, 
+    doll, human, animal, plant, abstract art'''
+positive_prompt = ''', realistic, 8K resolution, ultra-detailed, 
+    natural lighting, soft shadows, studio photography, 
+    fabric texture, minimalist design, functional furniture, 
+    smooth edges, perfect proportions, interior design'''
 VERBOSE = True
 
 class AttnForward:
