@@ -1,9 +1,13 @@
-48eb Pin
-69d0 Tủ rèm hoa, query dài
+48eb Pin number 26 X
+69d0 Tủ rèm hoa, query dài X
 254a tủ credenza khung chữ nhật nhỏ
 ac2b giường thủy thủ
-c487 Đèn 6 cái
+c487 Đèn 6 cái X
 d3e9 couch query ngắn
 5927 tủ gờ họa tiết hoa
+3634 bàn học
+ae69 tủ 4 cánh
+b8a2 tủ TV
+
 
 
