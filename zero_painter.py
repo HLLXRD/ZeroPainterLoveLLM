@@ -80,10 +80,11 @@ class HLongBeo:
         model_t2i, _ = models.get_t2i_model(self.config_folder_for_models, self.model_folder_generation)
         model_sam = segmentation.get_segmentation_model(self.segment_anything_model)
         self.zero_painter_model = ZeroPainter(model_t2i, model_inp, model_sam)
-        self.extract_model = ExtractLLM()
+        # self.extract_model = ExtractLLM()
 
     def ZP(self, mask_pil_png, text):
-        extracted_text = self.extract_model.extracting(text)
+        # extracted_text = self.extract_model.extracting(text)
+        extracted_text = text
         txt_path = os.path.join("/root/ZeroPainter", 'llm.txt')
         with open(txt_path, 'a') as f:
             f.write(str(extracted_text) + '\n')
@@ -118,9 +119,9 @@ class HLongBeo:
         # print(unique_colors)
         mask_pil_png = img
         metadata = [{
-    "prompt": "One" + extracted_text + "isolated in an empty room, no other objects",
+    "prompt": extracted_text + "in an empty room, no other objects",
     "color_context_dict": {
-        "(235, 206, 135)": "One" + extracted_text
+        "(235, 206, 135)": extracted_text
     }
 }]
 # "{(21, 0, 136)}": "black metal bar"
@@ -133,7 +134,7 @@ class HLongBeo:
         data = zero_painter_dataset.ZeroPainterDataset(mask_pil_png, metadata)
         # name = mask_pil_png.split('/')[-1]
         # Get the tensor output
-        result_tensor = self.zero_painter_model.gen_sample(data[0], 37, 37, 30, 30)  # Shape: (3, H, W)
+        result_tensor = self.zero_painter_model.gen_sample(data[0], 37, 36, 30, 30)  # Shape: (3, H, W)
         # Save the raw tensor (preserves all data/metadata)
         # torch.save(result_tensor.cpu(), "result_tensor.pt")
         # print("Saved tensor to 'result_tensor.pt'")

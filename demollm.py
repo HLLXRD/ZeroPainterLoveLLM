@@ -20,18 +20,26 @@ class ExtractLLM:
             - The response must not be put inside quotation marks "".
             - Ignore the word "symmetrically".
             - Only summarize it on one line.
-            - Keep the word "clothes".
-            - Ignore the word "flat".
-            - If there is "white background", ignore it.
             - Keep the core furniture words and especially the words for color, texture, material of it. 
             - Don't remove any numerals or quantifiers word like "two", "four", "multiple".
+            - Please remove all information about background color, such as "white background".
             - Change the "featuring" to "with".
             - Make the words as simple as possible. For example, the word "fixture with" can be shortened to "with".
+            - If there is "purple background", keep it.
+            - If there is "battery", add "shiny metallic battery" to the text.
+            - If there is "wooden frame", make it "dark wooden frame".
 
         Below are examples that you MUST follow, if the input is the same as one of the situation, you must output as the corresponding output:
             *Example 1:
-                Input: "a sleek black light fixture with six glass bulbs arranged in a symmetrical pattern on a white background."
-                Output: "black light fixture with six bulbs."
+                Input: "a Winnie-the-Pooh-themed cabinet featuring two sliding doors adorned with a design of Pooh holding a blue cup, surrounded by a purple background and accented with gold trim on the door edges."
+                Output: Winnie-the-Pooh-themed cabinet with two sliding doors, gold trim edges, Pooh holding blue cup design, purple background.
+            *Example 2:
+                Input: "a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement."
+                Output: a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings.
+            *Example 3:
+                Input:"a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space."
+                Output:Modern ceiling light with multiple glass orbs suspended in a line from a black metal bar.
+
 '''
 
         messages = [
@@ -95,6 +103,12 @@ if __name__ == "__main__":
     # Test case 1
     hlong.extracting(
         "a Winnie-the-Pooh-themed cabinet featuring two sliding doors adorned with a design of Pooh holding a blue cup, surrounded by a purple background and accented with gold trim on the door edges.")
+
+    hlong.extracting(
+        "a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement.")
+
+    hlong.extracting(
+        "a couch or sofa, characterized by its wooden frame and upholstered cushions.")
 
 # # Test case 2
 # hlong.extracting("a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space.")
