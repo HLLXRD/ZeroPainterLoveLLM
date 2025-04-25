@@ -8,9 +8,18 @@ d3e9 couch query ngắn
 3634 bàn học
 ae69 tủ 4 cánh
 b8a2 tủ TV
-3b1c giường vali
-5ba2 bàn cafe tròn 2 cái
-bc9f marble top, adorned with gold hardware and ornate legs.
+3b1c giường vali X
+5ba2 bàn cafe tròn 2 cái X
+bc9f marble top, adorned with gold hardware and ornate legs. X
+50a đèn thanh sắt
+
+
+EMbedding
+5ba bàn cafe
+69d tủ rèm hoa
+2c2b giường thủy thủ
+c487 đèn 6 cái
+5927 tủ gờ họa tiết vàng
 
 
 

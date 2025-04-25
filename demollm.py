@@ -1,6 +1,7 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import re
+import os
 
 
 class ExtractLLM:
@@ -23,23 +24,26 @@ class ExtractLLM:
             - Keep the core furniture words and especially the words for color, texture, material of it. 
             - Don't remove any numerals or quantifiers word like "two", "four", "multiple".
             - Please remove all information about background color, such as "white background".
-            - Change the "featuring" to "with".
             - Make the words as simple as possible. For example, the word "fixture with" can be shortened to "with".
             - If there is "purple background", keep it.
-            - If there is "battery", add "shiny metallic battery" to the text.
-            - If there is "wooden frame", make it "dark wooden frame".
+            - If there is "battery", add "shiny cyclindrical battery" metallic battery" to the text.
 
-        Below are examples that you MUST follow, if the input is the same as one of the situation, you must output as the corresponding output:
+        Special cases that you must follow:
             *Example 1:
-                Input: "a Winnie-the-Pooh-themed cabinet featuring two sliding doors adorned with a design of Pooh holding a blue cup, surrounded by a purple background and accented with gold trim on the door edges."
-                Output: Winnie-the-Pooh-themed cabinet with two sliding doors, gold trim edges, Pooh holding blue cup design, purple background.
+                Input: "a modern coffee table featuring two round, black tables that can be joined together or separated to form a single unit, comprising circular shapes made of glossy black material with a reflective surface, supported by a central base."
+                Output: Two round, glossy, black tables. 
             *Example 2:
                 Input: "a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement."
                 Output: a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings.
             *Example 3:
-                Input:"a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space."
-                Output:Modern ceiling light with multiple glass orbs suspended in a line from a black metal bar.
-
+                Input: "a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space."
+                Output: Modern ceiling light with multiple glass orbs suspended from a black metal bar.
+            *Example 4:
+                Input: "a stunning dark grey side table or low dresser featuring a white marble top, adorned with gold hardware and ornate legs."
+                Output: stunning dark grey side table or low dresser featuring marble top, ornate legs.
+            *Example 5:
+                Input: "a sleek gray sideboard or credenza featuring eight drawers, showcasing an open design that displays books on its left side."
+                Output: Sleek gray sideboard or credenza with eight drawers,displaying books.
 '''
 
         messages = [
@@ -72,6 +76,9 @@ class ExtractLLM:
 
         final = extract_response(raw)
         print(final)
+        txt_path = os.path.join("/root/ZeroPainter", 'llm.txt')
+        with open(txt_path, 'a') as f:
+            f.write(query + "------>" + final + '\n')
         return final
         # print("\n ====END OF RESPONSE====\n")
 
@@ -100,15 +107,8 @@ if __name__ == "__main__":
     # Usage
     hlong = ExtractLLM()
 
-    # Test case 1
     hlong.extracting(
-        "a Winnie-the-Pooh-themed cabinet featuring two sliding doors adorned with a design of Pooh holding a blue cup, surrounded by a purple background and accented with gold trim on the door edges.")
-
-    hlong.extracting(
-        "a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement.")
-
-    hlong.extracting(
-        "a couch or sofa, characterized by its wooden frame and upholstered cushions.")
+        "a sleek gray sideboard or credenza featuring eight drawers, showcasing an open design that displays books on its left side.")
 
 # # Test case 2
 # hlong.extracting("a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space.")

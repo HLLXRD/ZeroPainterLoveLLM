@@ -85,9 +85,6 @@ class HLongBeo:
     def ZP(self, mask_pil_png, text):
         # extracted_text = self.extract_model.extracting(text)
         extracted_text = text
-        txt_path = os.path.join("/root/ZeroPainter", 'llm.txt')
-        with open(txt_path, 'a') as f:
-            f.write(str(extracted_text) + '\n')
         # __file__ is the current file's path (assumed to be inside the ZeroPainter directory)
         # Get the absolute path of the current file
         current_file_path = os.path.abspath(__file__)
