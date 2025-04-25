@@ -22,6 +22,7 @@ class ExtractLLM:
             - Only summarize it on one line.
             - Keep the word "clothes".
             - Ignore the word "flat".
+            - If there is "white background", ignore it.
             - Keep the core furniture words and especially the words for color, texture, material of it. 
             - Don't remove any numerals or quantifiers word like "two", "four", "multiple".
             - Change the "featuring" to "with".
