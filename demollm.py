@@ -19,13 +19,14 @@ class ExtractLLM:
         Instruction:
             - The response must not be put inside quotation marks "".
             - Ignore the word "symmetrically".
-            - Ignore the word "flat".
             - Only summarize it on one line.
+            - Keep the word "clothes".
+            - Ignore the word "flat".
             - Keep the core furniture words and especially the words for color, texture, material of it. 
             - Don't remove any numerals or quantifiers word like "two", "four", "multiple".
-            - Please remove all information about background color, such as "white background".
             - Change the "featuring" to "with".
             - Make the words as simple as possible. For example, the word "fixture with" can be shortened to "with".
+            - If there is color information, use words to strengthen it.
 
         Below are examples that you MUST follow, if the input is the same as one of the situation, you must output as the corresponding output:
             *Example 1:
@@ -93,7 +94,7 @@ if __name__ == "__main__":
 
     # Test case 1
     hlong.extracting(
-        "a wooden dresser featuring two doors on either side of a central windowed door adorned with floral-patterned curtains. The dresser is crafted from light-colored wood and boasts intricate gold accents along the edges of its doors and at the bottom of its central panel, adding a touch of elegance to its design.")
+        "a Winnie-the-Pooh-themed cabinet featuring two sliding doors adorned with a design of Pooh holding a blue cup, surrounded by a purple background and accented with gold trim on the door edges.")
 
 # # Test case 2
 # hlong.extracting("a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space.")
