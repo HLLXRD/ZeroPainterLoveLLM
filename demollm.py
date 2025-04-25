@@ -26,7 +26,6 @@ class ExtractLLM:
             - Don't remove any numerals or quantifiers word like "two", "four", "multiple".
             - Change the "featuring" to "with".
             - Make the words as simple as possible. For example, the word "fixture with" can be shortened to "with".
-            - If there is color information, use words to strengthen it.
 
         Below are examples that you MUST follow, if the input is the same as one of the situation, you must output as the corresponding output:
             *Example 1:
