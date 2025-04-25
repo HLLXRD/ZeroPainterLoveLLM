@@ -1,0 +1,4 @@
+1. change 79..... in Evaluate.csv to 3b83bf74-6f50-4d36-b679-f2ce1192a2eb
+2. change main.py
+3. change pano2room (set threshold from 13000 to 5000)
+4. set __init__ in ZeroPainter from llmbest to demollm

@@ -12,14 +12,16 @@ b8a2 tủ TV
 5ba2 bàn cafe tròn 2 cái X
 bc9f marble top, adorned with gold hardware and ornate legs. X
 50a đèn thanh sắt
+0470 đèn chum 3 cái
 
 
 EMbedding
 5ba bàn cafe
 69d tủ rèm hoa
-2c2b giường thủy thủ
+ac2b giường thủy thủ
 c487 đèn 6 cái
 5927 tủ gờ họa tiết vàng
+d8eb pin
 
 
 

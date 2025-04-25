@@ -1,6 +1,6 @@
 from Database import FAISSManager
 from Panotomask import Maskcreation 
-from ZeroPainter import HLongBeo
+from ZeroPainter import HLongBeo, ExtractLLM
 import os 
 import argparse
 import pandas as pd
@@ -10,20 +10,22 @@ from tqdm import tqdm  # Add tqdm
 # Initialize components
 maskcreation = Maskcreation()
 zeropainter = HLongBeo()
-faissmanager = FAISSManager(index_dir='/root/faiss_index', embedding_dim = 1024)
-
+faissmanager = FAISSManager(index_dir='/root/faiss_index_1', embedding_dim = 1024)
+extractor = ExtractLLM()
+# maskcreation = None
+# zeropainter = None
 def process(input_text, input_pano, maskcreation, zeropainter, faissmanager):
     if not input_text:
         print('Cannot read text')
     if not input_pano:
         print('Cannot read image')
-
+    
     mask = maskcreation(input_pano)
     
 
     if mask == None:
         # output_Zeropainter = zeropainter.ZP(mask, input_text)
-
+        # input_text_extracted = extractor.extracting(input_text)
         result_text2text, embed_mean_text = faissmanager.search(
             query=input_text, query_type='text', search_in='text',
             top_k=10, return_answer_vector=True)
@@ -38,7 +40,7 @@ def process(input_text, input_pano, maskcreation, zeropainter, faissmanager):
         result_img2img = 0
         def find_answer():
             score_map = {}
-            all_results = result_text2img + result_text2text 
+            all_results = result_text2img + result_text2text + result_text2img + result_text2img + result_text2text
             for obj in all_results:
                 key = obj['object_dir']
                 score_map[key] = score_map.get(key, 0) + obj['confidence']
@@ -47,7 +49,8 @@ def process(input_text, input_pano, maskcreation, zeropainter, faissmanager):
             top_10_object_dirs = [k for k, v in sorted_items[:10]]
             return top_10_object_dirs
     else: 
-        output_Zeropainter = zeropainter.ZP(mask, input_text)
+        input_text_extracted = extractor.extracting(input_text)
+        output_Zeropainter = zeropainter.ZP(mask, input_text_extracted)
         result_img2img, embed_img = faissmanager.search(
             query=output_Zeropainter, query_type='image', search_in='image',
             top_k=10, return_answer_vector=True)
@@ -69,7 +72,7 @@ def process(input_text, input_pano, maskcreation, zeropainter, faissmanager):
 
         def find_answer():
             score_map = {}
-            all_results = result_img2img + result_text2img + result_text2text + result_text2img + result_img2img
+            all_results = result_img2img + result_text2img + result_text2text + result_text2img + result_image2mean + result_img2img
             for obj in all_results:
                 key = obj['object_dir']
                 score_map[key] = score_map.get(key, 0) + obj['confidence']
