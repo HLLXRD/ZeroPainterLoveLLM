@@ -15,48 +15,22 @@ class ExtractLLM:
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
 
     def extracting(self, query):
-        prompt = f'''Analyze this furniture description and summarize its components:"{query}"
-
+        prompt = f'''Explain this furniture description and clarify its components:"{query}"
         Instruction:
-            - The response must not be put inside quotation marks "".
-            - Ignore the word "symmetrically".
-            - Only summarize it on one line.
-            - Ignore the word "flat".
-            - Keep the core furniture words and especially the words for color, texture, material of it. 
-            - Don't remove any numerals or quantifiers word like "two", "four", "multiple".
-            - Please remove all information about background color, such as "white background".
-            - Make the words as simple as possible. For example, the word "fixture with" can be shortened to "with".
-            - If there is "purple background", keep it.
-
-        If the input is the same as one of the special cases below that you must response exactly as the corresponding output:
-            *Special case 1:
-                Input: "a modern coffee table featuring two round, black tables that can be joined together or separated to form a single unit, comprising circular shapes made of glossy black material with a reflective surface, supported by a central base."
-                Output: Two round, glossy, black coffee tables. 
-            *Special case 2:
-                Input: "a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement."
-                Output: a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings.
-            *Special case 3:
-                Input: "a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space."
-                Output: Modern ceiling light with multiple glass orbs suspended from a black metal bar.
-            *Special case 4:
-                Input: "a stunning dark grey side table or low dresser featuring a white marble top, adorned with gold hardware and ornate legs."
-                Output: stunning dark grey side table or low dresser featuring marble top, ornate legs.
-            *Special case 5:
-                Input: "a sleek gray sideboard or credenza featuring eight drawers, showcasing an open design that displays books on its left side."
-                Output: Sleek gray sideboard or credenza with eight drawers,displaying books.
-            *Special case 6:
-                Input: "a cylindrical object that is likely a battery, characterized by its dark grey color and narrow width."
-                Output: a dark grey cylindrical metal battery with narrow width.
-            *Special case 7:
-                Input: "a cylindrical metal battery with a silver color and a flat top, featuring the number 26 on it, likely used to store energy for various devices."
-                Output: a cylindrical metal battery with a silver color.
-            *Special case 8:
-                Input: "a ceiling light fixture with three circular lights in black or dark gray, featuring a white interior."
-                Output: three circular lights in black or dark gray, featuring a white interior.
+            - Only response in one line.
+            - The response must not put inside a quotation mark.
+            - The word must be suitable for kids.
+            - Just simplify the description.
+            - Dont't add more information to it.
+            - Ignore the information about the background, for example "white background".
+            - Keep "cylindrical", "rectangular", "triangle"
+        Example:
+            User: "A cylindrical toilet tissue with a pink rabbit pattern."
+            Response: A cylindrical-shaped toilet tissue with pink rabbit pattern. 
 '''
 
         messages = [
-            {"role": "system", "content": "You are an expert simplifier. Always use plain, concise language."},
+            {"role": "system", "content": "You are a teacher. Always use simple, common word"},
             {"role": "user", "content": prompt}
         ]
 
@@ -83,11 +57,53 @@ class ExtractLLM:
             extracted_raw = raw[1]
             return extracted_raw
 
+
         final = extract_response(raw)
         print(final)
-        txt_path = os.path.join("/root/ZeroPainter", 'llm.txt')
+        txt_path = os.path.join("/root/ZeroPainter", 'llmkindergarten.txt')
         with open(txt_path, 'a') as f:
             f.write(query + "------>" + final + '\n')
+        return final
+    def list_extracting(self, query):
+        prompt_extract = f'''Extract important information from this text: {query}
+        Instruction:
+            - The result must be in a list of string, for example: ["information1", "information2", "information3"].
+            - Ignore all the information about the usage of the object.
+            - Each information parts should be short and brief.
+        Example:
+            User: A glass vase with delicate pattern to arrange flower on it.
+            Response: ["A glass vase", "delicate pattern"]
+        '''
+        messages_extract = [
+            {"role": "system", "content": "You are an expert information extractor. Always use simple, precise word"},
+            {"role": "user", "content": prompt_extract}
+        ]
+        input_ids_extract = self.tokenizer.apply_chat_template(
+            messages_extract,
+            tokenize=True,
+            add_generation_prompt=True,
+            return_tensors="pt"
+        )
+
+        output_extract = self.model.generate(
+            input_ids_extract,
+            eos_token_id=self.tokenizer.eos_token_id,
+            max_new_tokens=200,
+            do_sample=False,
+        )
+
+        raw = self.tokenizer.decode(output_extract[0], skip_special_tokens=True)
+
+        def extract_response(raw):
+            """Extract only the response part from the complete output"""
+            # Look for patterns like "Output:" or the assistant's response after the prompt
+            raw = raw.split("[|assistant|]")
+            extracted_raw = raw[1]
+            return extracted_raw
+
+
+        final = extract_response(raw)
+        print(final)
         return final
         # print("\n ====END OF RESPONSE====\n")
 
@@ -116,8 +132,8 @@ if __name__ == "__main__":
     # Usage
     hlong = ExtractLLM()
 
-    hlong.extracting(
-        "a modern coffee table featuring two round, black tables that can be joined together or separated to form a single unit, comprising circular shapes made of glossy black material with a reflective surface, supported by a central base.")
+    hlong.list_extracting(
+        "a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement.")
 
 # # Test case 2
 # hlong.extracting("a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space.")
@@ -129,3 +145,6 @@ if __name__ == "__main__":
 
 # # Test case 4
 # hlong.extracting("a toy shelf containing various objects such as fruits, toys, and an owl, showcasing a colorful arrangement of items on its shelves.")
+
+
+#Threshold 2200
