@@ -22,44 +22,13 @@ class ExtractLLM:
             - Ignore the word "symmetrically".
             - Only summarize it on one line.
             - Ignore the word "flat".
+            - Remove all descriptions about the usage of the objects. 
             - Keep the core furniture words and especially the words for color, texture, material of it. 
-            - Don't remove any numerals or quantifiers word like "two", "four", "multiple".
+            - Don't remove any numerals or quantifiers word like "two", "four", "six", "multiple".
             - Please remove all information about background color, such as "white background".
             - Make the words as simple as possible. For example, the word "fixture with" can be shortened to "with".
-            - If there is "purple background", keep it.
-            - Remove the "26".
-
-        If the input is the same as one of the special cases below that you must response exactly as the corresponding output:
-            *Special case 1:
-                Input: "a modern coffee table featuring two round, black tables that can be joined together or separated to form a single unit, comprising circular shapes made of glossy black material with a reflective surface, supported by a central base."
-                Output: Two round, glossy, black coffee tables. 
-            *Special case 2:
-                Input: "a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement."
-                Output: a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings.
-            *Special case 3:
-                Input: "a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space."
-                Output: Modern ceiling light with multiple glass orbs suspended from a black metal bar.
-            *Special case 4:
-                Input: "a stunning dark grey side table or low dresser featuring a white marble top, adorned with gold hardware and ornate legs."
-                Output: stunning dark grey side table or low dresser featuring marble top, ornate legs.
-            *Special case 5:
-                Input: "a sleek gray sideboard or credenza featuring eight drawers, showcasing an open design that displays books on its left side."
-                Output: Sleek gray sideboard or credenza with eight drawers,displaying books.
-            *Special case 6:
-                Input: "a cylindrical object that is likely a battery, characterized by its dark grey color and narrow width."
-                Output: a dark grey cylindrical metal battery with narrow width.
-            *Special case 7:
-                Input: "a cylindrical metal battery with a silver color and a flat top, featuring the number 26 on it, likely used to store energy for various devices."
-                Output: a cylindrical metal battery with a silver color.
-            *Special case 8:
-                Input: "a ceiling light fixture with three circular lights in black or dark gray, featuring a white interior."
-                Output: three circular lights in black or dark gray, featuring a white interior.
-            *Special case 9:
-                Input: "a sleek black light fixture with six glass bulbs arranged in a symmetrical pattern on a white background."
-                Output: Six glass bulbs arranged on a sleek surface.
-            *Special case 10:
-                Input: "a black side table adorned with decorative items on top, including books or towels, a rectangular stone or marble block, and a small bowl or dish."
-                Output: a black side table adorned with books or towels, a rectangular stone or marble block, and a small bowl or dish.
+            - Remove the number on the appearance.
+            - If there is shape-related words, add "-shaped" before the word, for example "cylindrical" change to "cylindrical-shaped".
 '''
 
         messages = [

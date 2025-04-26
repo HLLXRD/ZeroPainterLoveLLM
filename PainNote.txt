@@ -13,6 +13,7 @@ b8a2 tủ TV
 bc9f marble top, adorned with gold hardware and ornate legs. X
 50a đèn thanh sắt
 0470 đèn chum 3 cái
+a44 ghế nhỏ có marble 
 
 
 EMbedding
@@ -23,5 +24,14 @@ c487 đèn 6 cái
 5927 tủ gờ họa tiết vàng
 d8eb pin
 
+
+current:
+5927 tủ gờ họa tiết vàng
+5ba2 bàn cafe tròn 2 cái X
+69d0 Tủ rèm hoa, query dài
+a44 ghế nhỏ có marble 
+c487 đèn 6 cái
+d3e9 couch query ngắn RANK 6
+ac2b giường thủy thủ
 
 
