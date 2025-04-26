@@ -1,0 +1,33 @@
+base
+a gray cabinet featuring two doors with frosted glass panels adorned with floral patterns.------>A gray box with doors that have clear glass parts with pretty flower designs inside.
+a large, multi-section entertainment unit featuring grey shelves, cabinets, and drawers, with a flat black TV screen mounted on the middle section.------>Big furniture with grey shelves, boxes, and drawers holding stuff, has a flat black TV screen in the middle part.
+a wooden dresser featuring two doors on either side of a central windowed door adorned with floral-patterned curtains. The dresser is crafted from light-colored wood and boasts intricate gold accents along the edges of its doors and at the bottom of its central panel, adding a touch of elegance to its design.------>A rectangular dresser with two side doors, one big window door, floral curtains, light wood, gold edges, and bottom gold touches, making it fancy and pretty.
+a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement.------>A big wooden chest with two doors on sides, a middle door or window with pretty floral curtains, top carved with designs, bottom has four legs, looking fancy like in a picture book.
+a wardrobe featuring two doors that open to reveal shelves for storing clothes and other items.------>A big box with two doors that open wide to show lots of spaces inside for keeping clothes and other things neatly stored.
+a large cabinet with two tall cabinets on either side of four tall doors in the middle, providing ample storage space for various items.------>Big boxy cabinet with doors in the middle holding lots of stuff.
+a bunk bed with stairs on the left side, featuring a ladder leading up to the top bunk, designed for two children to share.------>A bed with stairs on one side, two kids can climb up with a ladder to sleep higher together.
+
+
+
+
+
+a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space.------>A modern light hanging above with round clear balls hanging on a metal bar, giving soft light in rooms.
+a cylindrical object that is likely a battery, characterized by its dark grey color and narrow width.------>A round thing that might be a battery, dark grey color, skinny shape.
+a brown nightstand or end table with two drawers, showcasing a decorative arrangement of white flowers in a grey vase, a stack of books topped with a small coffee cup on a saucer, and a black sphere-shaped vase sitting alongside the flowers.------>A brown nightstand with two drawers, flowers in a grey vase, books stacked, coffee cup on saucer, and a black round vase beside them.
+a stunning dark grey side table or low dresser featuring a white marble top, adorned with gold hardware and ornate legs.------>A table or chest with a grey base, white marble top, shiny gold parts, and fancy legs shaped like triangles or rectangles.
+a black side table adorned with decorative items on top, including books or towels, a rectangular stone or marble block, and a small bowl or dish.------>A black table with pretty stuff on top like books or towels, a flat stone or marble piece, and a small bowl or dish sitting on it.
+a cylindrical metal battery with a silver color and a flat top, featuring the number 26 on it, likely used to store energy for various devices.------>A round metal box with silver color, top flat, showing number 26, used to keep power for toys and gadgets.
+a sleek black light fixture with six glass bulbs arranged in a symmetrical pattern on a white background.------>A shiny black light shape with six round lights in a straight line on it.
+a modern, minimalist floor lamp with a sleek, gold and black design featuring multiple cylindrical light fixtures mounted on slender poles that converge at the base.------>A simple lamp with shiny gold and black parts, shaped like tubes hanging from thin sticks that meet at the bottom.
+a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement.------>A big wooden box with doors on both sides, a pretty window with floral curtains, fancy carvings on top, four legs at bottom, like a colorful toy showcased in a showcase.
+
+
+seed 36
+
+a gray cabinet featuring two doors with frosted glass panels adorned with floral patterns.------>Gray box with doors that open, two sides have pretty glass with flowers drawn on it.
+a large, multi-section entertainment unit featuring grey shelves, cabinets, and drawers, with a flat black TV screen mounted on the middle section.------>Big roomy furniture with grey shelves and boxes holding stuff, has a flat black TV screen in the middle part.
+a wooden dresser featuring two doors on either side of a central windowed door adorned with floral-patterned curtains. The dresser is crafted from light-colored wood and boasts intricate gold accents along the edges of its doors and at the bottom of its central panel, adding a touch of elegance to its design.------>A wooden dresser with doors on both sides, a pretty window door with floral curtains, gold decorations making it fancy, all made from light wood.
+a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement.------>A big wooden box with doors on both sides, a pretty window with floral curtains, fancy carvings on top, four legs at bottom, like a colorful toy showcased in a showcase.
+a wardrobe featuring two doors that open to reveal shelves for storing clothes and other items.------>A roomy box with two doors that open wide to show lots of flat spaces inside for keeping clothes and other things neatly.
+a large cabinet with two tall cabinets on either side of four tall doors in the middle, providing ample storage space for various items.------>Big box with tall sides holding lots of stuff in doors in the middle.
+a bunk bed with stairs on the left side, featuring a ladder leading up to the top bunk, designed for two children to share.------>Two kids sleep together above stairs with a ladder on one side to climb up to their higher bunk bed.

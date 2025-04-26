@@ -2,6 +2,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import re
 import os
+import json
 
 
 class ExtractLLM:
@@ -57,25 +58,34 @@ class ExtractLLM:
             extracted_raw = raw[1]
             return extracted_raw
 
-
         final = extract_response(raw)
         print(final)
-        txt_path = os.path.join("/root/ZeroPainter", 'llmkindergarten.txt')
+        txt_path = os.path.join("/root/ZeroPainter", 'llmteacher.txt')
         with open(txt_path, 'a') as f:
             f.write(query + "------>" + final + '\n')
         return final
+
     def list_extracting(self, query):
-        prompt_extract = f'''Extract important information from this text: {query}
+        prompt_extract = f'''Extract important information from this text: "{query}"
         Instruction:
             - The result must be in a list of string, for example: ["information1", "information2", "information3"].
             - Ignore all the information about the usage of the object.
-            - Each information parts should be short and brief.
+            - Remove all the "background" information.
+            - Keep the core furniture object.
         Example:
-            User: A glass vase with delicate pattern to arrange flower on it.
-            Response: ["A glass vase", "delicate pattern"]
+            User: "A glass vase with delicate pattern to arrange flower on it."
+            Response: ["glass vase", "delicate pattern"]
+
+            User: "An iron locket with some decorative stripes for clothes storage in a white background."
+            Response: ["iron locket", "decorative stripes"]
+
+            User: "A oval-shaped chandelier featuring with black cubes around"
+            Response: ["oval-shaped chandelier", "black cubes around"]
+
         '''
         messages_extract = [
-            {"role": "system", "content": "You are an expert information extractor. Always use simple, precise word"},
+            {"role": "system",
+             "content": "You are an expert information extractor. Always use brief, simple , precise word"},
             {"role": "user", "content": prompt_extract}
         ]
         input_ids_extract = self.tokenizer.apply_chat_template(
@@ -101,10 +111,10 @@ class ExtractLLM:
             extracted_raw = raw[1]
             return extracted_raw
 
-
         final = extract_response(raw)
-        print(final)
-        return final
+        element_list = json.loads(final)
+        print(element_list)
+        return element_list
         # print("\n ====END OF RESPONSE====\n")
 
         # # Improved parsing
@@ -129,11 +139,21 @@ class ExtractLLM:
 
 
 if __name__ == "__main__":
-    # Usage
     hlong = ExtractLLM()
+    # Usage
+    all_scene_path = "/root/private_data/scenes"
+    for dir in os.listdir(all_scene_path):
+        path_dir = os.path.abspath(dir)
+        with open(os.path.join(all_scene_path, dir, "query.txt")) as f:
+            query = f.read()
+            result_list = f'{hlong.list_extracting(query)}'
+            with open("/root/ZeroPainter/list_extracted.txt", 'a') as q:
+                q.write(query + "-------->" + result_list + "\n")
 
-    hlong.list_extracting(
-        "a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement.")
+    # hlong = ExtractLLM()
+
+    # hlong.list_extracting(
+    #     "a wooden armoire featuring two doors on either side and a central window or door adorned with floral-patterned curtains. The armoire's top is embellished with decorative carvings, while its bottom boasts four legs. Against a white background, the armoire is prominently showcased as if in an advertisement.")
 
 # # Test case 2
 # hlong.extracting("a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space.")
@@ -147,4 +167,4 @@ if __name__ == "__main__":
 # hlong.extracting("a toy shelf containing various objects such as fruits, toys, and an owl, showcasing a colorful arrangement of items on its shelves.")
 
 
-#Threshold 2200
+# Threshold 2200

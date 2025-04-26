@@ -14,24 +14,32 @@ bc9f marble top, adorned with gold hardware and ornate legs. X
 50a đèn thanh sắt
 0470 đèn chum 3 cái
 a44 ghế nhỏ có marble 
-
-
-EMbedding
-5ba bàn cafe
-69d tủ rèm hoa
-ac2b giường thủy thủ
-c487 đèn 6 cái
-5927 tủ gờ họa tiết vàng
 d8eb pin
 
 
-current:
-5927 tủ gờ họa tiết vàng
-5ba2 bàn cafe tròn 2 cái 
-69d0 Tủ rèm hoa, query dài
-a44 ghế nhỏ có marble 
-c487 đèn 6 cái
-d3e9 couch query ngắn RANK 6
-ac2b giường thủy thủ
+1.1 seed 36, base (llmteacherseed36) - threshold 2200 - 0.94
+254a rank 2 E
+3634 rank 2 E
+ac2b rank 3 E
+ae69 rank 2 E
+b8a2 rank 2 E
+d3e9 rank 2 E
+5927 rank 3 E
+
+1.2 seed 36, base (llmteacherseed36) - threshold 100000 - 0.954
+5ba2 rank 2 E
+ae69 rank 5 Z
+c487 rank 2 E
+b8a2 rank 2 Z
 
 
+1.3 seed 36, base (llmteacherseed36) - threshold 20000
+a striking black podium with a sleek glass top, adorned with elegant gold and white accents, designed to elevate any speech or presentation.------>A tall, sleek black table with shiny glass on top, decorated with gold and white pretty stuff, perfect for important talks.
+a chandelier has an oval-shaped base that connects 12 candle holders, each topped with a pink glass shade, creating a unique and elegant lighting fixture.------>A pretty light hangs from a round base with 12 spots for candles, each candle has a pink glass cover to make it fancy and bright.
+a chair with a distinctive red and gold patterned backrest and seat cushion, featuring a dark grey frame with gold accents and ornate details at the top.------>A chair with red and gold spots on the back and seat, dark grey inside with pretty gold touches above, looking fancy.
+a refrigerator, featuring two doors that open to reveal an ice maker and water dispenser.------>A fridge with doors that open wide to show a machine that makes ice and another for drinking water.
+a red sectional sofa with a chaise lounge on the right side.------>Big red sofa that sits together, with a comfy lounge chair on one side.
+a refrigerator or freezer, characterized by its tall rectangular shape, textured surface resembling wood grain, and two handles on the front, with a flat top featuring four small white dots that may represent buttons or dials.------>A tall, rectangular fridge or freezer with wood-like feel, two handles on front, and a flat top with four small dots that might be buttons or dials.
+a modern ceiling light fixture featuring multiple glass orbs suspended from a black metal bar, likely intended to provide ambient lighting for a room or space.------>A room light with round glass balls hanging from a metal bar above, making soft light everywhere.
+a bed with a blue and white comforter featuring clouds and stripes, adorned with pillows and a blanket, showcasing a cozy bedroom scene.------>A bed covered in blue and white blankets with pretty cloud shapes and stripes, topped with soft pillows and a blanket, making it feel warm and comfy like a cozy room.
+a cylindrical object that is likely a battery, characterized by its dark grey color and narrow width.------>A dark grey cylinder that might be a battery, thin and round like a can.
