@@ -27,7 +27,7 @@ d8eb pin
 
 current:
 5927 tủ gờ họa tiết vàng
-5ba2 bàn cafe tròn 2 cái X
+5ba2 bàn cafe tròn 2 cái 
 69d0 Tủ rèm hoa, query dài
 a44 ghế nhỏ có marble 
 c487 đèn 6 cái
