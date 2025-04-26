@@ -288,7 +288,7 @@ class Maskcreation:
 
         # Tìm ảnh trong top 5 có nhiều pixel trùng màu nhất với dominant color
         best_img_np, best_score = self.detector.select_by_dominant_color(top5_imgs,rgb)
-        if best_score < 100000 and best_score > 2200:
+        if best_score < 100000:
             return None, None
 
         if best_img_np is None:
