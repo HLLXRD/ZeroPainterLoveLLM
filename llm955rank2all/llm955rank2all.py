@@ -31,12 +31,10 @@ class ExtractLLM:
             - DO NOT include any other information.
             - Ignore the information about the background, for example "white background".
             - If there is geometrical or shape information, keep it.
-            - "a large cabinet" change to "a half black half white cabinet".
+            - Replace "a large cabinet" with "a half black half white cabinet".
             - If the number of doors or objects is mentiened, keep it.
             - DO NOT use 'a' or 'an' at the beginning of the sentence.
         **Example:**
-            Input: "A bunk bed for kids to sleep in"
-            Response: Stacked bed for kids to sleep in
             Input: "A cylinder toilet tissue with a pink rabbit pattern."
             Response: A cylinder-shaped toilet tissue with pink rabbit pattern. 
 

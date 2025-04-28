@@ -28,19 +28,17 @@ class ExtractLLM:
             - The response must not put inside a quotation mark.
             - The word must be suitable for kids.
             - Just simplify the description.
-            - DO NOT include any other information.
+            - DO NOT add any other information.
             - Ignore the information about the background, for example "white background".
             - If there is geometrical or shape information, keep it.
-            - "a large cabinet" change to "a half black half white cabinet".
-            - If the number of doors or objects is mentiened, keep it.
+            - If the object is "a large cabinet with two tall cabinets" replace with "a half black half white cabinet".
+            - If the number of doors is mentiened, keep it.
             - DO NOT use 'a' or 'an' at the beginning of the sentence.
         **Example:**
-            Input: "A bunk bed for kids to sleep in"
-            Response: Stacked bed for kids to sleep in
             Input: "A cylinder toilet tissue with a pink rabbit pattern."
             Response: A cylinder-shaped toilet tissue with pink rabbit pattern. 
 
-            Input: "A large cabinet with four tall doors in the middle, providing ample storage space for various items."
+            Input: "A large cabinet with two tall cabinets on either side of four tall doors in the middle, providing ample storage space for various items."
             Response: A half black half white cabinet with four doors in the middle, providing ample storage space for various items.
 
         **Input:** "{query}"
